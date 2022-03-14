@@ -1,0 +1,4 @@
+﻿  main.cpp
+C:\Users\Oswego\Desktop\Networking-Win\TCPServer\TCPServer\main.cpp(11,1): warning C4326: return type of 'main' should be 'int' instead of 'void'
+C:\Users\Oswego\Desktop\Networking-Win\TCPServer\TCPServer\main.cpp(104,2): warning C4551: function call missing argument list
+LINK : fatal error LNK1104: cannot open file 'C:\Users\Oswego\Desktop\Networking-Win\TCPServer\x64\Debug\TCPServer.exe'
