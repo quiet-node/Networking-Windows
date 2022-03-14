@@ -79,7 +79,6 @@ int __cdecl main(int argc, char* argv[])
        beacons.push_back(line); // push to beacons vector
     }
 
-    //std::this_thread::sleep_for(std::chrono::seconds(3));
 
 
 
@@ -131,26 +130,25 @@ int __cdecl main(int argc, char* argv[])
 
     // SEND BEACONS TO SERVER
 
-    std::string buffer = "n00:00:00:00:00:01n192.168.0.0n47.519961n10.698863n3050.078383";
     bool exit = false;
-    std::cout << "Starting UDP Broadcaset. Press esc to exit! " << std::endl;
+    std::cout << "Sending TCP/IP messages to the server. Press esc to exit! " << std::endl;
     char buf[4096];
 
     while (exit == false)
     {
-        for (int i = 0; i < beacons.size(); i++)
+        for (std::size_t i = 0; i < beacons.size(); i++)
         {
             int sendRes = sendto(sock_, beacons[i].c_str(), beacons[i].length() + 1, 0, (struct sockaddr*)&outgoing, sizeof(struct sockaddr_in));
             if (sendRes != SOCKET_ERROR)
             {
-                std::cout << beacons[i] << std::endl;
+                //std::cout << beacons[i] << std::endl;
                 // Wait for response from server
                 ZeroMemory(buf, 4096);
                 int byteRecv = recv(sock_, buf, 4096, 0);
                 if (byteRecv > 0)
                 {
                     // Echo response to console
-                    std::cout << "SERVER replied> " << std::string(buf, 0, byteRecv) << std::endl;
+                    std::cout << "SERVER replied: " << std::string(buf, 0, byteRecv) << std::endl;
                 }
 
                 // exit when user hit esc
@@ -170,9 +168,6 @@ int __cdecl main(int argc, char* argv[])
     WSACleanup();
 
 
-
-
-    
-    
+    std::this_thread::sleep_for(std::chrono::seconds(5));
 }
 
