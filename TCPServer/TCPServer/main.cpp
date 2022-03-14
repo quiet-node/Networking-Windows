@@ -91,6 +91,8 @@ void main()
 			break;
 		}
 
+		// Display message
+		cout << "from Client: " << string(buf, 0, byteRecv) << endl;
 
 		// Echo message back to client
 		send(clientSocket, buf, byteRecv + 1, 0);
