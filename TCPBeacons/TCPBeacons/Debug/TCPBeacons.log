@@ -1,8 +1,3 @@
 ﻿  TCPBeacons.cpp
-C:\Users\Oswego\Desktop\Networking-Win\TCPBeacons\TCPBeacons\TCPBeacons.cpp(68,9): error C2561: 'main': function must return a value
-C:\Users\Oswego\Desktop\Networking-Win\TCPBeacons\TCPBeacons\TCPBeacons.cpp(23): message : see declaration of 'main'
-C:\Users\Oswego\Desktop\Networking-Win\TCPBeacons\TCPBeacons\TCPBeacons.cpp(78,9): error C2561: 'main': function must return a value
-C:\Users\Oswego\Desktop\Networking-Win\TCPBeacons\TCPBeacons\TCPBeacons.cpp(23): message : see declaration of 'main'
-C:\Users\Oswego\Desktop\Networking-Win\TCPBeacons\TCPBeacons\TCPBeacons.cpp(95,9): error C2561: 'main': function must return a value
-C:\Users\Oswego\Desktop\Networking-Win\TCPBeacons\TCPBeacons\TCPBeacons.cpp(23): message : see declaration of 'main'
-C:\Users\Oswego\Desktop\Networking-Win\TCPBeacons\TCPBeacons\TCPBeacons.cpp(109,27): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Oswego\Desktop\Networking-Win\TCPBeacons\TCPBeacons\TCPBeacons.cpp(141,27): warning C4018: '<': signed/unsigned mismatch
+  TCPBeacons.vcxproj -> C:\Users\Oswego\Desktop\Networking-Win\TCPBeacons\Debug\TCPBeacons.exe

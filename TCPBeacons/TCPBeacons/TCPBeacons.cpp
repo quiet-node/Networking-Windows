@@ -10,6 +10,8 @@
 #include <fstream>
 #include <vector>
 #include <string>
+#include <thread>         // std::this_thread::sleep_for
+#include <chrono>       
 
 #pragma comment (lib, "Ws2_32.lib")
 
@@ -22,7 +24,7 @@
 
 int __cdecl main(int argc, char* argv[])
 {
-    // FILE HANDLER
+    // >>>>>>> FILE HANDLER <<<<<<<
 
     // init attributes
     std::string fileName;
@@ -37,22 +39,52 @@ int __cdecl main(int argc, char* argv[])
         std::cin >> fileName;
         std::cout << "Parsing File: " + fileName << std::endl;
     }
+    else if (argc == 2 || argc == 3 || argc == 4) {
+        fileName = argv[1];
+        std::cout << "Parsing File: " + fileName << std::endl;
+        if (argc == 3 || argc == 4) {
+            secondArg = argv[2];
+            if (secondArg == "slow") {
+                innerDelay = 100;
+                outerDelay = 10;
+            }
+            else {
+                std::cout << "Unknown argument. Please use the syntax:\nUDPBeacons.exe <filename> slow\n if you wish to invoke slow mode" << std::endl;
+                return 0;
+            }
+            if (argc == 4) {
+                thirdArg = argv[3];
+                if (thirdArg == "slow") {
+                    innerDelay = 500;
+                    outerDelay = 10;
+                }
+                else {
+                    std::cout << "Unknown argument. Please use the syntax:\nUDPBeacons.exe <filename> slow slow\n if you wish to invoke slow slow mode" << std::endl;
+                    return 0;
+                }
+            }
+
+        }
+    }
 
     // After the file is inputed, parse the file => push it to a vector
     std::ifstream infile(fileName);
     std::string line;
     std::vector<std::string> beacons;
+    std::getline(infile, line);
+
+
     while (std::getline(infile, line))
     {
-        beacons.push_back(line); // push to beacons vector
+       beacons.push_back(line); // push to beacons vector
     }
 
-    for (int i = 0; beacons.size(); i++) {
-        std::cout << beacons[i] << std::endl;
-    }
+    //std::this_thread::sleep_for(std::chrono::seconds(3));
 
 
-    // TCP/IP HANDLER
+
+
+    // >>>>>>> TCP/IP HANDLER <<<<<<<
 
     std::string ipAddress = "127.0.0.1"; // ip of the server
 
@@ -65,7 +97,7 @@ int __cdecl main(int argc, char* argv[])
     if (wsResult != 0)
     {
         std::cerr << "Can't start Winsock, Err #" << wsResult << std::endl;
-        return;
+        return -1;
     }
 
 
@@ -75,7 +107,7 @@ int __cdecl main(int argc, char* argv[])
     {
         std::cerr << "Can't create socket, Err #" << WSAGetLastError;
         WSACleanup();
-        return;
+        return -1;
     }
 
     // Fill in a outgoing structure - this structure tells winSock that what server and what port we want to connect to
@@ -92,7 +124,7 @@ int __cdecl main(int argc, char* argv[])
         std::cerr << "Can't connect to server, Err #" << WSAGetLastError() << std::endl;
         closesocket(sock_);
         WSACleanup();
-        return;
+        return -1;
 
     }
 
@@ -136,6 +168,11 @@ int __cdecl main(int argc, char* argv[])
     std::cout << "Stopped TCP/IP Connection." << std::endl;
     closesocket(sock_);
     WSACleanup();
+
+
+
+
+    
     
 }
 
