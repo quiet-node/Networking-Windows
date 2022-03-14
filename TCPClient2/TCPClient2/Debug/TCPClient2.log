@@ -1,0 +1,3 @@
+﻿  main.cpp
+C:\Users\Oswego\Desktop\Networking-Win\TCPClient2\TCPClient2\main.cpp(10,1): warning C4326: return type of 'main' should be 'int' instead of 'void'
+  TCPClient2.vcxproj -> C:\Users\Oswego\Desktop\Networking-Win\TCPClient2\Debug\TCPClient2.exe
