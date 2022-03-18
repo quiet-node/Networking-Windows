@@ -9,7 +9,7 @@ using namespace std;
 void main()
 {
 	string ipAddress = "127.0.0.1"; // ip of the server
-	int port = 54000;				// listening port on server
+	int port = 1901;				// listening port on server
 
 	// init winSock
 	WSAData data;
