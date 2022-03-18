@@ -2,4 +2,5 @@
 C:\Users\Oswego\Desktop\Networking-Win\MultiClientTCPServer\main.cpp(10,1): warning C4326: return type of 'main' should be 'int' instead of 'void'
 C:\Users\Oswego\Desktop\Networking-Win\MultiClientTCPServer\main.cpp(76,63): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
 C:\Users\Oswego\Desktop\Networking-Win\MultiClientTCPServer\main.cpp(96,24): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Oswego\Desktop\Networking-Win\MultiClientTCPServer\main.cpp(106,58): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
   MultiClientTCPServer.vcxproj -> C:\Users\Oswego\Desktop\Networking-Win\MultiClientTCPServer\x64\Debug\MultiClientTCPServer.exe

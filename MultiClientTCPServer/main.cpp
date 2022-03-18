@@ -1,6 +1,6 @@
 # include <iostream>
-
 # include <WS2tcpip.h>
+# include <sstream>
 
 #pragma comment (lib, "ws2_32.lib")
 
@@ -99,7 +99,11 @@ void main()
 						{
 							// if the socket at master[i] is not the server or itself, then it's one of the other clients
 							// send message to that client i
-							send(outSock, buf, bytesIn, 0);
+							
+							std::ostringstream ss;
+							ss << "Socket #" << sock_ << ": " << buf << "\r\n";
+							std::string strOut = ss.str();
+							send(outSock, strOut.c_str(), strOut.size() + 1, 0);
 						}
 					}
 				}
